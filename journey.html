@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generating Journey | StartupSim</title>
+    <!-- Google Fonts: Outfit -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="journey-bg">
+    <!-- Floating Nav Button -->
+    <a href="index.html" class="floating-nav-back" title="Start Over">
+        <i class="ph-bold ph-arrow-left"></i>
+    </a>
+    <!-- Minimal Navbar -->
+    <nav class="navbar standalone-nav">
+        <a href="index.html" class="logo" style="text-decoration: none;">
+            <i class="ph-fill ph-rocket-launch logo-icon"></i>
+            <span>StartupSim</span>
+        </a>
+    </nav>
+
+    <!-- 1. AI Processing State (Initial View) -->
+    <div id="ai-processing-state" class="ai-state fullscreen-flex">
+        <div class="ai-orb-container">
+            <div class="ai-orb"></div>
+            <div class="ai-orb-core"></div>
+        </div>
+        <div class="ai-text-panel">
+            <h2 id="ai-title">Analyzing your idea...</h2>
+            <p id="ai-subtitle">Designing your personalized startup journey</p>
+        </div>
+    </div>
+
+    <!-- 2. Generated Path Screen (Final View) -->
+    <div id="generated-path-screen" class="path-screen container hidden">
+        <div class="path-layout">
+            
+            <!-- Roadmap Left Column -->
+            <div class="roadmap-column">
+                <div class="roadmap-header">
+                    <h2>Your Custom Path</h2>
+                    <p>Unlock stages by completing objectives.</p>
+                </div>
+
+                <div class="vertical-roadmap" id="roadmap-container">
+                    <div class="vertical-line" id="drawing-line"></div>
+                    
+                    <!-- Nodes -->
+                    <div class="v-node hidden-node unlocked active-node" onclick="selectStage(1)">
+                        <div class="v-node-icon"><i class="ph-fill ph-magnifying-glass"></i></div>
+                        <div class="v-node-label">Problem Discovery</div>
+                    </div>
+
+                    <div class="v-node hidden-node locked" onclick="selectStage(2)">
+                        <div class="v-node-icon"><i class="ph-fill ph-lock-key"></i></div>
+                        <div class="v-node-label">Stakeholder Mapping</div>
+                    </div>
+
+                    <div class="v-node hidden-node locked" onclick="selectStage(3)">
+                        <div class="v-node-icon"><i class="ph-fill ph-lock-key"></i></div>
+                        <div class="v-node-label">Solution Design</div>
+                    </div>
+
+                    <div class="v-node hidden-node locked" onclick="selectStage(4)">
+                        <div class="v-node-icon"><i class="ph-fill ph-lock-key"></i></div>
+                        <div class="v-node-label">Pilot Testing</div>
+                    </div>
+
+                    <div class="v-node hidden-node locked" onclick="selectStage(5)">
+                        <div class="v-node-icon"><i class="ph-fill ph-lock-key"></i></div>
+                        <div class="v-node-label">Resource Management</div>
+                    </div>
+
+                    <div class="v-node hidden-node locked" onclick="selectStage(6)">
+                        <div class="v-node-icon"><i class="ph-fill ph-lock-key"></i></div>
+                        <div class="v-node-label">Crisis Handling</div>
+                    </div>
+
+                    <div class="v-node hidden-node locked" onclick="selectStage(7)">
+                        <div class="v-node-icon"><i class="ph-fill ph-lock-key"></i></div>
+                        <div class="v-node-label">Scaling</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Details Panel Right Column -->
+            <div class="details-column">
+                <div class="stage-details-panel glass-panel hidden-panel" id="details-panel">
+                    <div class="badge">Current Stage</div>
+                    <h3 id="panel-title">Stage 1: Problem Discovery</h3>
+                    <p id="panel-objective" class="objective-text">Identify burning pain points and validate them with real users before writing a single line of code.</p>
+                    
+                    <div class="task-list">
+                        <h4>Required Objectives</h4>
+                        <ul id="panel-tasks">
+                            <li><i class="ph-fill ph-check-circle" style="color: #cbd5e1;"></i> Interview 10 potential users</li>
+                            <li><i class="ph-fill ph-check-circle" style="color: #cbd5e1;"></i> Define the core problem statement</li>
+                        </ul>
+                    </div>
+
+                    <div class="panel-ctas">
+                        <button class="btn btn-primary btn-large w-full">Start Stage</button>
+                        <button class="btn btn-outline btn-large w-full mt-3">View Full Journey</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Logic Script -->
+    <script src="journey.js"></script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Start Your Journey | StartupSim</title>
+    <!-- Google Fonts: Outfit for a modern, slightly rounded, tech/game feel -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Phosphor Icons: Clean and modern icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="start-bg">
+    
+    <!-- Animated background blobs -->
+    <div class="bg-shape shape-1"></div>
+    <div class="bg-shape shape-2"></div>
+    <div class="bg-shape shape-3"></div>
+
+    <!-- Minimal Navbar with Back Button -->
+    <nav class="navbar standalone-nav">
+        <a href="index.html" class="logo" style="text-decoration: none;">
+            <i class="ph-fill ph-rocket-launch logo-icon"></i>
+            <span>StartupSim</span>
+        </a>
+        <a href="index.html" class="btn btn-outline btn-small">
+            <i class="ph ph-arrow-left"></i> Back to Home
+        </a>
+    </nav>
+
+    <!-- Form Section -->
+    <main class="start-journey glass-container">
+        <div class="idea-card glass-panel-heavy animate-card">
+            
+            <div class="idea-header animate-group staggered-1">
+                <h2>Start Your Startup Journey</h2>
+                <p>Turn your idea into a real-world experience</p>
+            </div>
+            
+            <form id="journey-form">
+                <div class="input-group animate-group staggered-2">
+                    <label for="idea">Your Idea</label>
+                    <textarea id="idea" placeholder="Describe your idea (e.g., reduce food waste, improve education, etc.)" required></textarea>
+                </div>
+                
+                <div class="input-group animate-group staggered-3">
+                    <label for="audience">Target Audience</label>
+                    <input type="text" id="audience" placeholder="Who are you solving this for?" required>
+                </div>
+
+                <div class="input-group animate-group staggered-4">
+                    <label for="budget">Budget (Optional)</label>
+                    <input type="text" id="budget" placeholder="Enter your starting budget">
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-large staggered-btn" style="width: 100%; margin-top: 1rem;">
+                    Generate My Journey
+                </button>
+            </form>
+
+            <!-- Loader Overlay -->
+            <div class="loader-overlay glass-overlay" id="loader">
+                <div class="spinner"></div>
+                <div class="loader-text">
+                    <h3 id="loader-title">Analyzing your idea...</h3>
+                    <p id="loader-desc">Building your personalized journey...</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        document.getElementById('journey-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const idea = document.getElementById('idea').value.trim();
+            const audience = document.getElementById('audience').value.trim();
+            
+            if(idea && audience) {
+                // Save context for the AI prompt
+                sessionStorage.setItem('startupIdea', idea);
+                sessionStorage.setItem('startupAudience', audience);
+                sessionStorage.setItem('startupBudget', document.getElementById('budget').value.trim());
+
+                // Go to the journey generation page
+                window.location.href = 'journey.html';
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulation | StartupSim</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="simulation.css">
+</head>
+<body class="sim-bg">
+    <!-- Floating Nav Button -->
+    <a href="journey.html" class="floating-nav-back" title="Back to Roadmap">
+        <i class="ph-bold ph-arrow-left"></i>
+    </a>
+    <div class="sim-ambient ambient-left"></div>
+    <div class="sim-ambient ambient-right"></div>
+    <div class="sim-grid-overlay"></div>
+
+    <nav class="navbar standalone-nav sim-nav">
+        <a href="journey.html" class="logo" style="text-decoration: none;">
+            <i class="ph-fill ph-rocket-launch logo-icon"></i>
+            <span>StartupSim</span>
+        </a>
+        <div class="metrics-strip">
+            <div class="metric-pill budget-pill">
+                <i class="ph-fill ph-coins"></i>
+                <div>
+                    <span class="metric-label">Cash</span>
+                    <strong id="metric-cash">$150k</strong>
+                    <span class="metric-delta" id="metric-cash-delta"></span>
+                </div>
+            </div>
+            <div class="metric-pill">
+                <i class="ph-fill ph-clock"></i>
+                <div>
+                    <span class="metric-label">Staff Hrs</span>
+                    <strong id="metric-staffHours">100</strong>
+                    <span class="metric-delta" id="metric-staffHours-delta"></span>
+                </div>
+            </div>
+            <div class="metric-pill trust-pill">
+                <i class="ph-fill ph-star"></i>
+                <div>
+                    <span class="metric-label">Reputation</span>
+                    <strong id="metric-reputation">50</strong>
+                    <span class="metric-delta" id="metric-reputation-delta"></span>
+                </div>
+            </div>
+            <div class="metric-pill impact-pill">
+                <i class="ph-fill ph-handshake"></i>
+                <div>
+                    <span class="metric-label">Inv Trust</span>
+                    <strong id="metric-investorTrust">50</strong>
+                    <span class="metric-delta" id="metric-investorTrust-delta"></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="sim-stage">
+        <section class="story-stage" id="story-stage">
+            <div class="sim-stage-header">
+                <div class="story-topline">
+                    <span class="story-chip" id="sim-stage-badge">Phase 1</span>
+                    <span class="story-chip alt-chip" id="sim-stage-progress">Stage 1 of 7</span>
+                </div>
+                <div class="story-copy">
+                    <h1 id="sim-title">Loading Simulation...</h1>
+                    <p id="sim-objective">Preparing scenario context...</p>
+                </div>
+            </div>
+
+            <div class="story-frame">
+                <div class="story-image-wrap loading" id="comic-scene-media">
+                    <img id="comic-scene-image" alt="AI-generated comic scene for this stage">
+                    <div class="story-image-glow"></div>
+                </div>
+
+                <div class="story-overlay">
+                    <div class="story-dialogues" id="story-dialogues">
+                        <!-- Dialogue bubbles injected here -->
+                    </div>
+                </div>
+            </div>
+
+            <section class="decision-flow">
+                <div class="decision-prompt" style="text-align: center; margin: 2rem 0 1.5rem 0; padding: 1.5rem; background: rgba(139, 92, 246, 0.05); border: 1px solid rgba(139, 92, 246, 0.2); border-radius: var(--radius-lg);">
+                    <h2 style="font-size: 1.8rem; font-weight: 700; color: var(--text-main); margin-bottom: 0.5rem;">What should you do next?</h2>
+                    <p style="font-size: 1.1rem; color: var(--text-muted);">As the founder, make your decision to navigate this challenge.</p>
+                </div>
+                
+                <div class="decision-grid" id="sim-decisions">
+                    <!-- Choice cards injected here -->
+                </div>
+
+                <div id="mini-challenges-container">
+                    <!-- Mini Challenges Injected Here dynamically via JS -->
+                </div>
+
+                <div style="display:flex;justify-content:center;margin-top:2.2rem;">
+                    <button id="evaluate-btn" class="btn btn-primary" style="font-size:1.1rem;padding:0.9rem 2.2rem;border-radius:999px;box-shadow:0 2px 12px #8b5cf622;letter-spacing:0.03em;">
+                        <i class="ph-bold ph-lock-key" style="margin-right:0.6em;"></i>Lock Decision
+                    </button>
+                </div>
+            </section>
+
+            <section class="opportunities-section hidden" id="opp-section" style="margin-top:2rem; border-top:2px dashed rgba(139,92,246,0.2); padding-top:2rem;">
+                <h2 style="font-size: 1.6rem; font-weight: 700; color: var(--text-main); margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;"><i class="ph-bold ph-strategy" style="color:var(--primary);"></i> Real-World Opportunities</h2>
+                <p style="font-size: 1.05rem; color: var(--text-muted); margin-bottom: 1.5rem;">Take on external challenges to accelerate growth (Optional).</p>
+                <div class="decision-grid" id="opp-cards-container">
+                    <!-- Cards injected here -->
+                </div>
+            </section>
+        </section>
+    </main>
+
+    <!-- Gamified Full Screen Outcome Dashboard -->
+    <div id="outcome-dashboard" class="outcome-overlay hidden">
+        <div class="outcome-container">
+            <div class="outcome-header">
+                <span class="outcome-label" style="letter-spacing:0.08em;font-size:1.1rem;background:linear-gradient(90deg,var(--primary),var(--secondary));color:white;padding:0.5rem 1.5rem;border-radius:999px;box-shadow:0 2px 12px rgba(139,92,246,0.08);">AI Outcome Analysis</span>
+                <h2 id="outcome-title" class="glitch-text text-gradient" data-text="Calculating..." style="font-size:2.8rem;margin-top:1.2rem;">Calculating...</h2>
+            </div>
+            
+            <div class="outcome-narrative-box" style="background:linear-gradient(90deg,#f1f5f9 60%,#e0e7ff 100%);border-radius:var(--radius-lg);box-shadow:0 4px 24px rgba(139,92,246,0.07);padding:2rem 2.5rem 1.5rem 2.5rem;margin-bottom:2.2rem;">
+                <h3 style="font-size:1.25rem;color:var(--primary);font-weight:700;margin-bottom:1rem;letter-spacing:0.01em;">Key Takeaways</h3>
+                <ul id="outcome-bullets" style="list-style:none;padding:0;margin:0 0 0.5rem 0;display:flex;flex-direction:column;gap:0.7rem;">
+                    <li style="background:rgba(139,92,246,0.07);padding:0.7rem 1.1rem;border-radius:var(--radius-md);color:var(--text-main);font-size:1.08rem;font-weight:500;display:flex;align-items:center;gap:0.7rem;"><i class="ph-bold ph-check-circle" style="color:var(--primary);"></i> <span id="outcome-bullet-1">Point 1</span></li>
+                    <li style="background:rgba(14,165,233,0.07);padding:0.7rem 1.1rem;border-radius:var(--radius-md);color:var(--text-main);font-size:1.08rem;font-weight:500;display:flex;align-items:center;gap:0.7rem;"><i class="ph-bold ph-check-circle" style="color:var(--secondary);"></i> <span id="outcome-bullet-2">Point 2</span></li>
+                    <li style="background:rgba(16,185,129,0.07);padding:0.7rem 1.1rem;border-radius:var(--radius-md);color:var(--text-main);font-size:1.08rem;font-weight:500;display:flex;align-items:center;gap:0.7rem;"><i class="ph-bold ph-check-circle" style="color:var(--green);"></i> <span id="outcome-bullet-3">Point 3</span></li>
+                </ul>
+                <div class="scanning-line" style="height:4px;background:linear-gradient(90deg,var(--primary),var(--secondary));border-radius:2px;margin-top:1.2rem;"></div>
+            </div>
+
+            <div class="outcome-metrics-grid" style="margin-bottom:2.5rem;gap:2.2rem;display:grid;grid-template-columns:repeat(4,1fr);">
+                <div class="outcome-stat" style="background:linear-gradient(120deg,#fffbe6 60%,#fef3c7 100%);box-shadow:0 2px 16px #f59e0b22;">
+                    <span class="stat-icon" style="font-size:2.3rem;"><i class="ph-fill ph-coins"></i></span>
+                    <span class="stat-label" style="color:var(--orange);font-size:1rem;">CASH</span>
+                    <strong id="outcome-stat-cash" class="stat-value" style="font-size:2.1rem;color:var(--orange);text-shadow:0 2px 8px #f59e0b33;">--</strong>
+                </div>
+                <div class="outcome-stat" style="background:linear-gradient(120deg,#f3e8ff 60%,#e9d5ff 100%);box-shadow:0 2px 16px #a855f722;">
+                    <span class="stat-icon" style="font-size:2.3rem;"><i class="ph-fill ph-clock"></i></span>
+                    <span class="stat-label" style="color:var(--purple);font-size:1rem;">STAFF HRS</span>
+                    <strong id="outcome-stat-staffHours" class="stat-value" style="font-size:2.1rem;color:var(--purple);text-shadow:0 2px 8px #a855f733;">--</strong>
+                </div>
+                <div class="outcome-stat" style="background:linear-gradient(120deg,#e0f7fa 60%,#e0e7ff 100%);box-shadow:0 2px 16px #0ea5e922;">
+                    <span class="stat-icon" style="font-size:2.3rem;"><i class="ph-fill ph-star"></i></span>
+                    <span class="stat-label" style="color:var(--secondary);font-size:1rem;">REPUTATION</span>
+                    <strong id="outcome-stat-reputation" class="stat-value" style="font-size:2.1rem;color:var(--secondary);text-shadow:0 2px 8px #0ea5e933;">--</strong>
+                </div>
+                <div class="outcome-stat" style="background:linear-gradient(120deg,#e0ffe6 60%,#e0e7ff 100%);box-shadow:0 2px 16px #10b98122;">
+                    <span class="stat-icon" style="font-size:2.3rem;"><i class="ph-fill ph-handshake"></i></span>
+                    <span class="stat-label" style="color:var(--green);font-size:1rem;">INV TRUST</span>
+                    <strong id="outcome-stat-investorTrust" class="stat-value" style="font-size:2.1rem;color:var(--green);text-shadow:0 2px 8px #10b98133;">--</strong>
+                </div>
+            </div>
+
+            <div id="task-feedback-container" class="hidden" style="background:#f8fafc;border:1px solid #e2e8f0;border-left:4px solid var(--primary);border-radius:var(--radius-lg);padding:1.5rem;margin-bottom:2.5rem;text-align:left;">
+                <h3 style="font-size:1.1rem;color:var(--text-main);font-weight:700;margin-bottom:1rem;display:flex;align-items:center;gap:0.5rem;"><i class="ph-bold ph-pencil-simple" style="color:var(--primary);"></i> AI Strategy Evaluation</h3>
+                <div style="display:flex;flex-direction:column;gap:0.8rem;">
+                    <div>
+                        <strong style="color:var(--green);font-size:0.9rem;text-transform:uppercase;">Strengths</strong>
+                        <p id="task-feedback-strengths" style="margin:0.2rem 0;color:var(--text-main);font-size:0.95rem;"></p>
+                    </div>
+                    <div>
+                        <strong style="color:var(--red);font-size:0.9rem;text-transform:uppercase;">Missing Elements</strong>
+                        <p id="task-feedback-missing" style="margin:0.2rem 0;color:var(--text-main);font-size:0.95rem;"></p>
+                    </div>
+                    <div>
+                        <strong style="color:var(--secondary);font-size:0.9rem;text-transform:uppercase;">Suggestions</strong>
+                        <p id="task-feedback-suggestions" style="margin:0.2rem 0;color:var(--text-main);font-size:0.95rem;"></p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="boardroom-feedback-container" class="hidden" style="background:#fef2f2;border:1px solid #fecaca;border-left:4px solid var(--red);border-radius:var(--radius-lg);padding:1.5rem;margin-bottom:2.5rem;text-align:left;">
+                <h3 style="font-size:1.1rem;color:var(--red);font-weight:800;margin-bottom:1rem;display:flex;align-items:center;gap:0.5rem;text-transform:uppercase;"><i class="ph-bold ph-shield-check" style="color:var(--red);"></i> Boardroom Defense Verdict</h3>
+                
+                <div style="display:grid;grid-template-columns:repeat(4, 1fr);gap:1rem;margin-bottom:1.5rem;">
+                    <div style="background:white;padding:1rem;border-radius:8px;text-align:center;box-shadow:0 2px 4px rgba(0,0,0,0.02);border:1px solid #fee2e2;">
+                        <span style="display:block;font-size:0.75rem;color:var(--text-muted);font-weight:700;text-transform:uppercase;">Clarity</span>
+                        <strong id="br-score-clarity" style="font-size:1.8rem;color:var(--primary);">0</strong><span style="font-size:0.9rem;color:var(--text-muted);">/10</span>
+                    </div>
+                    <div style="background:white;padding:1rem;border-radius:8px;text-align:center;box-shadow:0 2px 4px rgba(0,0,0,0.02);border:1px solid #fee2e2;">
+                        <span style="display:block;font-size:0.75rem;color:var(--text-muted);font-weight:700;text-transform:uppercase;">Justification</span>
+                        <strong id="br-score-justification" style="font-size:1.8rem;color:var(--secondary);">0</strong><span style="font-size:0.9rem;color:var(--text-muted);">/10</span>
+                    </div>
+                    <div style="background:white;padding:1rem;border-radius:8px;text-align:center;box-shadow:0 2px 4px rgba(0,0,0,0.02);border:1px solid #fee2e2;">
+                        <span style="display:block;font-size:0.75rem;color:var(--text-muted);font-weight:700;text-transform:uppercase;">Risk Aware</span>
+                        <strong id="br-score-riskAwareness" style="font-size:1.8rem;color:var(--orange);">0</strong><span style="font-size:0.9rem;color:var(--text-muted);">/10</span>
+                    </div>
+                    <div style="background:white;padding:1rem;border-radius:8px;text-align:center;box-shadow:0 2px 4px rgba(0,0,0,0.02);border:1px solid #fee2e2;">
+                        <span style="display:block;font-size:0.75rem;color:var(--text-muted);font-weight:700;text-transform:uppercase;">Confidence</span>
+                        <strong id="br-score-confidence" style="font-size:1.8rem;color:var(--green);">0</strong><span style="font-size:0.9rem;color:var(--text-muted);">/10</span>
+                    </div>
+                </div>
+
+                <div style="display:flex;flex-direction:column;gap:0.8rem;background:white;padding:1rem;border-radius:8px;border:1px solid #fee2e2;">
+                    <div>
+                        <strong style="color:var(--green);font-size:0.9rem;text-transform:uppercase;">Pitch Strengths</strong>
+                        <p id="br-feedback-strengths" style="margin:0.2rem 0;color:var(--text-main);font-size:0.95rem;"></p>
+                    </div>
+                    <div>
+                        <strong style="color:var(--red);font-size:0.9rem;text-transform:uppercase;">Pitch Weaknesses</strong>
+                        <p id="br-feedback-weaknesses" style="margin:0.2rem 0;color:var(--text-main);font-size:0.95rem;"></p>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="stakeholder-reactions" style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:var(--radius-lg);padding:2.5rem;margin-bottom:2.5rem;">
+                <h3 style="font-size:1.4rem;color:var(--text-main);font-weight:800;margin-bottom:0.3rem;display:flex;align-items:center;gap:0.5rem;"><i class="ph-bold ph-users-three" style="color:var(--primary);"></i> Stakeholder Alignments</h3>
+                <p style="font-size:1rem;color:var(--text-muted);margin-bottom:2.5rem;font-style:italic;">Your decisions carry weight. How you lead dictates who follows.</p>
+                <div style="display:flex;flex-direction:column;gap:1.5rem;">
+                    
+                    <!-- Risk-Taker -->
+                    <div style="background:white;padding:2rem;border-radius:var(--radius-lg);box-shadow:0 4px 20px rgba(0,0,0,0.04);display:flex;flex-direction:column;gap:1.2rem;">
+                        <div style="display:flex;justify-content:space-between;align-items:center;">
+                            <div style="display:flex;align-items:center;gap:1.2rem;">
+                                <div style="display:flex;flex-direction:column;">
+                                    <span style="font-size:1.15rem;font-weight:800;color:var(--text-main);">Risk-Taker</span>
+                                    <span style="font-size:0.85rem;font-weight:700;color:var(--primary);text-transform:uppercase;letter-spacing:0.05em;">Loves Bold Moves</span>
+                                </div>
+                            </div>
+                            <div id="trust-val-riskTaker" style="display:flex;align-items:center;">
+                                <span style="font-size:1.6rem;font-weight:800;color:var(--text-main);">50</span>
+                            </div>
+                        </div>
+                        <div class="trust-progress-bg" style="width:100%;background:#f1f5f9;height:8px;border-radius:4px;margin:0.2rem 0;"><div id="trust-bar-riskTaker" class="trust-progress-fill" style="width:50%;background:var(--primary);height:100%;border-radius:4px;transition:width 0.6s ease;"></div></div>
+                        <p id="reaction-riskTaker" style="margin:0;font-size:1.1rem;color:var(--text-dark);line-height:1.6;">Waiting for report...</p>
+                    </div>
+
+                    <!-- Conservative -->
+                    <div style="background:white;padding:2rem;border-radius:var(--radius-lg);box-shadow:0 4px 20px rgba(0,0,0,0.04);display:flex;flex-direction:column;gap:1.2rem;">
+                        <div style="display:flex;justify-content:space-between;align-items:center;">
+                            <div style="display:flex;align-items:center;gap:1.2rem;">
+                                <div style="display:flex;flex-direction:column;">
+                                    <span style="font-size:1.15rem;font-weight:800;color:var(--text-main);">Conservative</span>
+                                    <span style="font-size:0.85rem;font-weight:700;color:var(--secondary);text-transform:uppercase;letter-spacing:0.05em;">Prefers Cautious Expansion</span>
+                                </div>
+                            </div>
+                            <div id="trust-val-conservative" style="display:flex;align-items:center;">
+                                <span style="font-size:1.6rem;font-weight:800;color:var(--text-main);">50</span>
+                            </div>
+                        </div>
+                        <div class="trust-progress-bg" style="width:100%;background:#f1f5f9;height:8px;border-radius:4px;margin:0.2rem 0;"><div id="trust-bar-conservative" class="trust-progress-fill" style="width:50%;background:var(--secondary);height:100%;border-radius:4px;transition:width 0.6s ease;"></div></div>
+                        <p id="reaction-conservative" style="margin:0;font-size:1.1rem;color:var(--text-dark);line-height:1.6;">Waiting for report...</p>
+                    </div>
+
+                    <!-- Trend-Follower -->
+                    <div style="background:white;padding:2rem;border-radius:var(--radius-lg);box-shadow:0 4px 20px rgba(0,0,0,0.04);display:flex;flex-direction:column;gap:1.2rem;">
+                        <div style="display:flex;justify-content:space-between;align-items:center;">
+                            <div style="display:flex;align-items:center;gap:1.2rem;">
+                                <div style="display:flex;flex-direction:column;">
+                                    <span style="font-size:1.15rem;font-weight:800;color:var(--text-main);">Trend-Follower</span>
+                                    <span style="font-size:0.85rem;font-weight:700;color:var(--green);text-transform:uppercase;letter-spacing:0.05em;">Values Buzz & Hype</span>
+                                </div>
+                            </div>
+                            <div id="trust-val-trendFollower" style="display:flex;align-items:center;">
+                                <span style="font-size:1.6rem;font-weight:800;color:var(--text-main);">50</span>
+                            </div>
+                        </div>
+                        <div class="trust-progress-bg" style="width:100%;background:#f1f5f9;height:8px;border-radius:4px;margin:0.2rem 0;"><div id="trust-bar-trendFollower" class="trust-progress-fill" style="width:50%;background:var(--green);height:100%;border-radius:4px;transition:width 0.6s ease;"></div></div>
+                        <p id="reaction-trendFollower" style="margin:0;font-size:1.1rem;color:var(--text-dark);line-height:1.6;">Waiting for report...</p>
+                    </div>
+
+                    <!-- Data-Driven -->
+                    <div style="background:white;padding:2rem;border-radius:var(--radius-lg);box-shadow:0 4px 20px rgba(0,0,0,0.04);display:flex;flex-direction:column;gap:1.2rem;">
+                        <div style="display:flex;justify-content:space-between;align-items:center;">
+                            <div style="display:flex;align-items:center;gap:1.2rem;">
+                                <div style="display:flex;flex-direction:column;">
+                                    <span style="font-size:1.15rem;font-weight:800;color:var(--text-main);">Data-Driven</span>
+                                    <span style="font-size:0.85rem;font-weight:700;color:var(--orange);text-transform:uppercase;letter-spacing:0.05em;">Demands ROI Metrics</span>
+                                </div>
+                            </div>
+                            <div id="trust-val-dataDriven" style="display:flex;align-items:center;">
+                                <span style="font-size:1.6rem;font-weight:800;color:var(--text-main);">50</span>
+                            </div>
+                        </div>
+                        <div class="trust-progress-bg" style="width:100%;background:#f1f5f9;height:8px;border-radius:4px;margin:0.2rem 0;"><div id="trust-bar-dataDriven" class="trust-progress-fill" style="width:50%;background:var(--orange);height:100%;border-radius:4px;transition:width 0.6s ease;"></div></div>
+                        <p id="reaction-dataDriven" style="margin:0;font-size:1.1rem;color:var(--text-dark);line-height:1.6;">Waiting for report...</p>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="outcome-insight" style="background:linear-gradient(90deg,#ede9fe 60%,#e0e7ff 100%);box-shadow:0 2px 12px #8b5cf622;margin-bottom:2.5rem;align-items:flex-start;gap:1.2rem;">
+                <i class="ph-fill ph-lightbulb" style="font-size:2.2rem;color:var(--primary);"></i>
+                <p id="outcome-insight" style="font-size:1.15rem;font-weight:600;color:var(--primary);margin:0;">Standing by...</p>
+            </div>
+
+            <div class="outcome-actions" style="margin-top:1.5rem;">
+                <button class="btn btn-primary glow-button" id="btn-proceed" onclick="completeScenario()" disabled style="font-size:1.15rem;padding:1.1rem 2.5rem 1.1rem 2.2rem;border-radius:999px;box-shadow:0 4px 24px #8b5cf633;letter-spacing:0.04em;">
+                    Proceed to Next Stage <i class="ph-bold ph-arrow-right"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Crisis Scenario Modal -->
+    <div id="crisis-modal" class="outcome-overlay hidden">
+        <div class="outcome-container crisis-container">
+            <div class="outcome-header">
+                <span class="outcome-label crisis-label">🚨 Crisis Alert</span>
+                <h2 id="crisis-title" class="glitch-text">Crisis Incoming...</h2>
+            </div>
+            
+            <div class="outcome-narrative-box crisis-narrative">
+                <p id="crisis-description">A high-pressure challenge has emerged...</p>
+                <div class="scanning-line crisis-scan"></div>
+            </div>
+
+            <div class="decision-grid crisis-options" id="crisis-options">
+                <!-- Crisis response options injected here -->
+            </div>
+
+            <div class="outcome-insight crisis-insight">
+                <i class="ph-fill ph-warning"></i>
+                <p>Choose wisely - crises test true leadership</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Opportunity Modal -->
+    <div id="opp-modal" class="outcome-overlay hidden">
+        <div class="outcome-container" style="max-width:600px; padding:2.5rem; text-align:left; border-top: 4px solid var(--primary);">
+            <div class="outcome-header" style="margin-bottom:1.5rem; text-align:center;">
+                <span class="outcome-label" style="background:#f0fdf4; color:#166534; border:1px solid #bbf7d0; padding:0.4rem 1rem; border-radius:999px; font-weight:700; text-transform:uppercase; font-size:0.8rem; letter-spacing:0.05em;" id="opp-modal-badge">Apply for Opportunity</span>
+                <h2 id="opp-modal-title" class="text-gradient" style="margin-top:1rem; font-size:2.2rem; margin-bottom:0;">Opportunity Name</h2>
+            </div>
+            
+            <div class="outcome-narrative-box" style="margin-bottom:1.5rem;">
+                <p id="opp-modal-desc" style="color:var(--text-main); font-size:1.05rem;"></p>
+                <div style="margin-top:1rem; padding:0.8rem; background:rgba(0,0,0,0.03); border-radius:var(--radius-md);">
+                    <strong style="display:block; color:var(--text-main); font-size:0.9rem;">Benefit: <span id="opp-modal-benefit" style="color:var(--primary);"></span></strong>
+                    <strong style="display:block; color:var(--text-main); font-size:0.9rem; margin-top:0.3rem;">Requirement: <span id="opp-modal-req" style="color:var(--text-muted);"></span></strong>
+                </div>
+            </div>
+
+            <div id="opp-modal-tasks" style="display:flex; flex-direction:column; gap:1rem;">
+                <!-- Filled dynamically via JS depending on taskType -->
+            </div>
+
+            <div style="display:flex; gap:1rem; margin-top:1.5rem;">
+                <button id="opp-modal-cancel" class="btn btn-outline" style="flex:1;" onclick="closeOppModal()">Cancel</button>
+                <button id="opp-modal-submit" class="btn btn-primary" style="flex:2;">Submit</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="simulation.js"></script>
+</body>
+</html>

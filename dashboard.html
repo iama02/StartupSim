@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Startup Dashboard | StartupSim</title>
+    <!-- Google Fonts: Outfit -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="simulation.css">
+</head>
+<body class="journey-bg">
+
+    <nav class="navbar standalone-nav">
+        <a href="index.html" class="logo" style="text-decoration: none;">
+            <i class="ph-fill ph-rocket-launch logo-icon"></i>
+            <span>StartupSim</span>
+        </a>
+        <a href="index.html" class="btn btn-outline btn-small">Start New Company</a>
+    </nav>
+
+    <!-- AI Loading State -->
+    <div id="dashboard-loading" class="ai-state fullscreen-flex">
+        <div class="ai-orb-container">
+            <div class="ai-orb"></div>
+            <div class="ai-orb-core"></div>
+        </div>
+        <div class="ai-text-panel">
+            <h2>Compiling Investor Report...</h2>
+            <p>Venture Capital AI is reviewing your decisions</p>
+        </div>
+    </div>
+
+    <!-- Generated Dashboard Screen -->
+    <div id="dashboard-content" class="path-screen container hidden" style="margin-top: 5rem;">
+        <div class="section-header">
+            <div class="badge">Final Evaluation</div>
+            <h2 id="founder-archetype">Analyzing Founder...</h2>
+            <p>Your startup journey has concluded. Here is the final verdict.</p>
+        </div>
+        
+        <div class="pitch-showcase" style="flex-direction: row; align-items: flex-start;">
+            
+            <div class="score-card" style="flex: 2;">
+                <div class="score-header">
+                    <h3>Investor Letter</h3>
+                    <div class="final-score" id="final-grade">--</div>
+                </div>
+                
+                <div id="investor-letter-body" class="letter-content" style="font-size: 1.125rem; color: var(--text-muted); line-height: 1.8;">
+                    <!-- AI Content Injected Here -->
+                </div>
+            </div>
+
+            <div class="score-card" style="flex: 1; background: var(--surface);">
+                <h3>Final Metrics</h3>
+                <div class="score-metrics" style="margin-top: 1.5rem;">
+                    <div class="metric">
+                        <span>Remaining Cash</span>
+                        <div class="bar-bg"><div class="bar-fill" id="bar-cash" style="width: 0%; background: var(--orange);"></div></div>
+                        <div class="metric-value mt-1"><i class="ph-fill ph-coins text-orange"></i> <span id="final-cash">--</span></div>
+                    </div>
+                    <div class="metric mt-3">
+                        <span>Remaining Staff Hours</span>
+                        <div class="bar-bg"><div class="bar-fill" id="bar-staffHours" style="width: 0%; background: var(--purple);"></div></div>
+                        <div class="metric-value mt-1"><i class="ph-fill ph-clock text-purple"></i> <span id="final-staffHours">--</span></div>
+                    </div>
+                    <div class="metric mt-3">
+                        <span>Market Reputation</span>
+                        <div class="bar-bg"><div class="bar-fill" id="bar-reputation" style="width: 0%; background: var(--secondary);"></div></div>
+                        <div class="metric-value mt-1"><i class="ph-fill ph-star text-secondary"></i> <span id="final-reputation">--</span></div>
+                    </div>
+                    <div class="metric mt-3">
+                        <span>Investor Trust</span>
+                        <div class="bar-bg"><div class="bar-fill" id="bar-investorTrust" style="width: 0%; background: var(--green);"></div></div>
+                        <div class="metric-value mt-1"><i class="ph-fill ph-handshake text-green"></i> <span id="final-investorTrust">--</span></div>
+                    </div>
+                </div>
+
+                <div class="panel-ctas mt-4">
+                    <a href="index.html" class="btn btn-primary w-full">Start Another Company</a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="history-timeline mt-5">
+            <h3 class="text-center mb-4">Decision History</h3>
+            <div class="timeline-container" id="timeline-container">
+                <!-- History Injected Here -->
+            </div>
+        </div>
+
+        <div class="history-timeline mt-5">
+            <h3 class="text-center mb-4">Useful Resources For Your Idea</h3>
+            <div id="resources-container" class="timeline-container">
+                <!-- AI resources injected here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Logic Script -->
+    <script src="dashboard.js"></script>
+</body>
+</html>

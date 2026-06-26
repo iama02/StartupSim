@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StartupSim | The Gamified Startup Experience</title>
+    <!-- Google Fonts: Outfit for a modern, slightly rounded, tech/game feel -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Phosphor Icons: Clean and modern icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Minimal Navbar -->
+    <nav class="navbar">
+        <div class="logo">
+            <i class="ph-fill ph-rocket-launch logo-icon"></i>
+            <span>StartupSim</span>
+        </div>
+        <div class="nav-links">
+            <a href="#features">Features</a>
+            <a href="#journey">Journey</a>
+            <a href="#demo">Demo</a>
+        </div>
+        <a href="#demo" class="btn btn-secondary nav-cta">Play Now</a>
+    </nav>
+
+    <!-- 1. Hero Section -->
+    <section class="hero glass-panel">
+        <div class="hero-content">
+            <div class="badge">🚀 v2.0 Beta Live</div>
+            <h1 class="hero-title">Experience Building a Startup, <span class="text-gradient">Not Just Learning It</span></h1>
+            <p class="hero-subtitle">Make decisions, face real-world challenges, and test your venture in a risk-free, gamified simulation.</p>
+            <div class="hero-buttons">
+                <a href="start.html" class="btn btn-primary btn-large">Start Your Journey</a>
+                <a href="#demo" class="btn btn-outline btn-large">
+                    <i class="ph ph-play-circle"></i> View Demo
+                </a>
+            </div>
+        </div>
+        <div class="hero-illustration">
+            <!-- CSS/SVG geometric illustration of a startup going up -->
+            <div class="floating-element el-1"><i class="ph-fill ph-chart-line-up"></i></div>
+            <div class="floating-element el-2"><i class="ph-fill ph-lightbulb"></i></div>
+            <div class="floating-element el-3"><i class="ph-fill ph-currency-dollar"></i></div>
+            <div class="main-graphic">
+                <div class="graphic-base"></div>
+                <div class="graphic-layer"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. Features Section -->
+    <section id="features" class="features container">
+        <div class="section-header">
+            <h2>Why Play StartupSim?</h2>
+            <p>Master the startup lifecycle through immersive, interactive mechanics.</p>
+        </div>
+        <div class="feature-grid">
+            <div class="feature-card">
+                <div class="icon-wrapper color-blue"><i class="ph ph-git-branch"></i></div>
+                <h3>Decision-Based Simulation</h3>
+                <p>Every choice branches your startup's path and impacts your resources.</p>
+            </div>
+            <div class="feature-card">
+                <div class="icon-wrapper color-red"><i class="ph ph-warning-octagon"></i></div>
+                <h3>Crisis Scenarios</h3>
+                <p>Face highly realistic, high-pressure challenges like real founders do.</p>
+            </div>
+            <div class="feature-card">
+                <div class="icon-wrapper color-purple"><i class="ph ph-brain"></i></div>
+                <h3>AI Feedback & Learning</h3>
+                <p>Receive insightful, actionable feedback analyzing your strategic decisions.</p>
+            </div>
+            <div class="feature-card">
+                <div class="icon-wrapper color-green"><i class="ph ph-presentation-chart"></i></div>
+                <h3>Investor Pitch Evaluation</h3>
+                <p>Pitch your results to an AI investor board to secure virtual funding.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. How It Works Section -->
+    <section class="how-it-works glass-panel full-width">
+        <div class="container">
+            <div class="section-header">
+                <h2>The Startup Loop</h2>
+            </div>
+            <div class="steps-flow">
+                <div class="step">
+                    <div class="step-circle">1</div>
+                    <h4>Enter Idea</h4>
+                </div>
+                <div class="connector"></div>
+                <div class="step">
+                    <div class="step-circle">2</div>
+                    <h4>Follow Path</h4>
+                </div>
+                <div class="connector"></div>
+                <div class="step">
+                    <div class="step-circle">3</div>
+                    <h4>Make Decisions</h4>
+                </div>
+                <div class="connector"></div>
+                <div class="step">
+                    <div class="step-circle">4</div>
+                    <h4>Face Crises</h4>
+                </div>
+                <div class="connector"></div>
+                <div class="step">
+                    <div class="step-circle">5</div>
+                    <h4>Pitch Investors</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Journey Preview Section -->
+    <section id="journey" class="journey container">
+        <div class="section-header">
+            <h2>Your Journey Roadmap</h2>
+            <p>From a napkin idea to a scaling powerhouse. Unlock stages as you progress.</p>
+        </div>
+        <div class="roadmap">
+            <div class="roadmap-line"></div>
+            
+            <div class="roadmap-node unlocked" data-title="Problem Discovery">
+                <i class="ph-fill ph-magnifying-glass"></i>
+                <span>Discovery</span>
+            </div>
+            <div class="roadmap-node unlocked" data-title="Stakeholder Mapping">
+                <i class="ph-fill ph-users-three"></i>
+                <span>Mapping</span>
+            </div>
+            <div class="roadmap-node current pulse" data-title="Solution Design">
+                <i class="ph-fill ph-pencil-circle"></i>
+                <span>Design</span>
+            </div>
+            <div class="roadmap-node locked" data-title="Pilot & MVP">
+                <i class="ph-fill ph-lock-key"></i>
+                <span>Pilot</span>
+            </div>
+            <div class="roadmap-node locked" data-title="Resource Allocation">
+                <i class="ph-fill ph-lock-key"></i>
+                <span>Resources</span>
+            </div>
+            <div class="roadmap-node locked danger" data-title="Crisis Management">
+                <i class="ph-fill ph-lock-key"></i>
+                <span>Crisis</span>
+            </div>
+            <div class="roadmap-node locked success" data-title="Scaling">
+                <i class="ph-fill ph-lock-key"></i>
+                <span>Scaling</span>
+            </div>
+        </div>
+        <div class="roadmap-details-box" id="roadmap-details">
+            <h4 id="rm-title">Hover a stage</h4>
+            <p id="rm-desc">Explore the different phases of your simulation journey.</p>
+        </div>
+    </section>
+
+    <!-- 5. Demo/Interactive Section -->
+    <section id="demo" class="demo soft-bg full-width">
+        <div class="container dual-col">
+            <div class="demo-text">
+                <h2>Experience the Pressure</h2>
+                <p>Try a live decision scenario right now. How well can you handle sudden adversity?</p>
+                <div class="stats-bar">
+                    <div class="stat"><i class="ph ph-coin"></i> Funds: $120k</div>
+                    <div class="stat"><i class="ph ph-users"></i> Morale: 85%</div>
+                </div>
+            </div>
+            <div class="demo-ui">
+                <div class="scenario-card">
+                    <div class="alert-badge"><i class="ph ph-warning"></i> CRISIS ALERT</div>
+                    <h3>Funding dropped by 40%</h3>
+                    <p>Your lead investor just pulled out due to market conditions. You have 3 months of runway left. What do you do?</p>
+                    <div class="choices">
+                        <button class="choice-btn" onclick="handleChoice(1)">
+                            <span class="choice-letter">A</span> Lay off 30% of the team to extend runway
+                        </button>
+                        <button class="choice-btn" onclick="handleChoice(2)">
+                            <span class="choice-letter">B</span> Pivot to a cheaper, faster-to-market product
+                        </button>
+                        <button class="choice-btn" onclick="handleChoice(3)">
+                            <span class="choice-letter">C</span> Double down on sales with current budget
+                        </button>
+                    </div>
+                </div>
+                <!-- This will be shown via JS -->
+                <div class="feedback-card hidden" id="demo-feedback">
+                    <div class="feedback-icon" id="fb-icon"></div>
+                    <h4 id="fb-title"></h4>
+                    <p id="fb-text"></p>
+                    <button class="btn btn-secondary btn-small" onclick="resetDemo()">Try Again</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. Final Pitch Section -->
+    <section class="pitch container">
+        <div class="section-header">
+            <h2>The Ultimate Test</h2>
+            <p>Your journey concludes in the boardroom. How well did you execute?</p>
+        </div>
+        <div class="pitch-showcase">
+            <div class="investor-avatar">
+                <img src="https://api.dicebear.com/7.x/notionists/svg?seed=Felix&backgroundColor=e0e7ff" alt="Investor">
+                <div class="investor-name">AI Partner Board</div>
+            </div>
+            <div class="score-card">
+                <div class="score-header">
+                    <h3>Simulation Results</h3>
+                    <div class="final-score">8.5/10</div>
+                </div>
+                <div class="score-metrics">
+                    <div class="metric">
+                        <span>Product-Market Fit</span>
+                        <div class="progress-bar"><div class="fill" style="width: 90%; background: #14b8a6;"></div></div>
+                    </div>
+                    <div class="metric">
+                        <span>Resource Management</span>
+                        <div class="progress-bar"><div class="fill" style="width: 70%; background: #f59e0b;"></div></div>
+                    </div>
+                    <div class="metric">
+                        <span>Resilience</span>
+                        <div class="progress-bar"><div class="fill" style="width: 85%; background: #8b5cf6;"></div></div>
+                    </div>
+                </div>
+                <div class="investor-quote">
+                    "Solid pivot during the churn crisis, but you over-hired early on. Overall, a highly investable mindset."
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. Footer -->
+    <footer>
+        <div class="footer-content container">
+            <div class="footer-brand">
+                <div class="logo">
+                    <i class="ph-fill ph-rocket-launch logo-icon"></i>
+                    <span>StartupSim</span>
+                </div>
+                <p>The Gamified Builder.</p>
+            </div>
+            <div class="footer-links">
+                <a href="#">About</a>
+                <a href="#">Contact</a>
+                <a href="#">GitHub</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 StartupSim. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
